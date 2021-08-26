@@ -17,9 +17,19 @@ const uri = process.env.ATLAS_URI; //datebase uri, get from mongodb dashboard
 mongoose.connect(uri, { useNewUrlParser: true }); //start connection with database
 mongoose.connect(uri, { CreateIndex: true });
 const connection = mongoose.connection; 
+//once connection is open
 connection.once('open', () => {
+    //connected to the database
     console.log("MongoDB database connection established succesesfully");
 })
+
+const exercisesRouter = require('./routes/exercises');
+const usersRouter = require('./routes/users');
+
+//is /exercises is used, everything in the exerciseRouter will be loaded
+app.use('/exercises', exercisesRouter);
+app.use('/users', usersRouter);
+
 
 //starts the server
 app.listen(port, () => {
