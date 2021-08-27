@@ -77,7 +77,7 @@ export default class CreateExercises extends Component {
             <div>
                 <h3>Create New Exercise Log</h3>
                 <form onSubmit={this.onSubmit}>
-                    
+
                     <div className="form-group">
                         <label>Username: </label>
                         <select ref="userInput"
@@ -85,15 +85,15 @@ export default class CreateExercises extends Component {
                             className="form-control"
                             value={this.state.username}
                             onChange={this.onChangeUsername}>
-                                {
-                                    this.state.users.map(function(user) {
-                                        return <option
-                                        key={user}
-                                        value={user}>{user}
-                                        </option>
-                                    })
-                                }
-                        </select>
+                            {
+                                this.state.users.map(function(user) {
+                                return <option 
+                                    key={user}
+                                    value={user}>{user}
+                                    </option>;
+                                })
+                            }
+                         </select>
                     </div>
 
                     <div className="form-group">
@@ -127,7 +127,7 @@ export default class CreateExercises extends Component {
                     </div>
 
                     <div className="form=group">
-                        <input type="submit" value="Craete Exercise Log" className="btn btn-primary" />
+                        <input type="submit" value="Create Exercise Log" className="btn btn-primary" />
                     </div>
                 </form>
             </div>
